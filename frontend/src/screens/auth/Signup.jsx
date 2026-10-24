@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { RiArrowLeftUpLine } from "react-icons/ri";
-import axios from "axios";
+
+import { axiosInstance } from "../../axios";
 
 const SignupPage = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
   const handleSignup = async () => {
-    axios
-      .post(import.meta.env.VITE_API_URL + "/auth/signup", {
+    axiosInstance
+      .post("/auth/signup", {
         username: email,
         password: password,
       })
